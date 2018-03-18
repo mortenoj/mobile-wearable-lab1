@@ -16,19 +16,27 @@ public class A3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a3);
 
+        // Add event listener to button
         addListenerOnButton();
     }
 
+
+    /**
+     * addListenerOnButton starts new activity A2 with the value from text view back
+     * **/
     private void addListenerOnButton() {
 
 
         Button button = findViewById(R.id.button_a3);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                // Find EditText by id
                 EditText returnText = findViewById(R.id.textInput_a3);
 
+                // New intent and puts extra
                 Intent returnIntent = new Intent();
                 returnIntent.putExtra("result", returnText.getText().toString());
+                // Sets result
                 setResult(A2Activity.RESULT_OK, returnIntent);
                 finish();
             }
